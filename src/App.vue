@@ -30,9 +30,9 @@ export default {
 }
 </script>
 
-<style>
-@import './assets/css/main.scss';
+<style lang="less" src="./assets/css/main.less"></style>
 
+<style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -26,9 +26,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json', '.scss'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
-      /* sass loader */
-      styles: resolve('src/assets/*.scss')
+      '@': resolve('src')
     }
   },
   module: {
@@ -67,9 +65,14 @@ module.exports = {
         name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
       }
     },
+    /* use this to load less nested class */
     {
       test: /\.scss$/,
-      loader: ['style', 'css', 'sass']
+      loader: ['style', 'css', 'less']
+    },
+    {
+      test: /\.less$/,
+      loader: 'less-loader'
     }
     ]/* rules */
   },
