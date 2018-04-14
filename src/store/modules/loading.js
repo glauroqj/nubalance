@@ -2,7 +2,7 @@
 const state = {
 	all: {
 		showLoading: true,
-		text: 'Carregando...',
+		text: 'Carregando',
 		height: 30,
 		width: 30
 	}

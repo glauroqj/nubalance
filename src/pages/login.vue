@@ -1,25 +1,31 @@
 <template>
-  <div>
+  <div class="login">
     <div class="container">
       <div class="row">
-        <div class="col-md-offset-5 col-md-3">
-          <div class="form-login">
-            <h4>Welcome back.</h4>
-            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
-          </br>
-          <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
-        </br>
-        <div class="wrapper">
-          <span class="group-btn">     
-            <a href="#" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
-          </span>
+        <div class="col-md-12">
+
+          <form action="">
+            <div class="box-form">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" id="userName" class="form-control input-sm" placeholder="username" />
+                </div>
+
+                <div class="form-group">
+                  <input type="password" id="userPassword" class="form-control input-sm" placeholder="password" />
+                </div>
+
+                <div class="form-group">    
+                  <a href="#" class="btn btn-primary btn-md">login</a>
+                </div>
+              </div>
+            </div>
+          </form>
+
         </div>
       </div>
-      
     </div>
   </div>
-</div>
-</div>
 </template>
 
 <script>
@@ -29,11 +35,14 @@ export default {
   name: 'login',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   },
   created () {
+    let vm = this;
     // this.$store.dispatch()
+    setTimeout(()=> {
+      vm.$store.dispatch('removeLoadingAction');
+    }, 1500);
   },
   computed: mapGetters({
     state: 'loginState'

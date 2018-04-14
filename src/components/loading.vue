@@ -1,8 +1,7 @@
 <template lang="html">
 	<div>
 		<div class="loading" v-if="loading.showLoading">
-			{{loading.text}}
-			<!-- <img src="../assets/img/loading.gif" :height="height" :width="width"> {{text}} -->
+			{{loading.text}} <i class="fas fa-sync"></i>
 		</div>
 	</div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <loading :loading="state"></loading>
-    <router-view v-if="!state.showLoading"/>
+    <router-view v-show="!state.showLoading"/>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import { mapGetters, mapActions } from 'vuex'
 import loading from '@/components/loading.vue';
 
 export default {
-  name: 'Skeleton',
+  name: 'Nubalance',
   components: {
     loading
   },
@@ -22,10 +22,7 @@ export default {
 
   },
   created () {
-    var vm = this;
-    setTimeout(()=> {
-      vm.$store.dispatch('removeLoadingAction')
-    }, 1500);
+    let vm = this;
   },
   computed: mapGetters({
     state: 'loadingState'
