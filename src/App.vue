@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <loading :loading="state"></loading>
+    <loading :loading="state"/>
+
     <router-view v-show="!state.showLoading"/>
   </div>
 </template>
@@ -33,12 +34,4 @@ export default {
 <style lang="less" src="./assets/css/main.less"></style>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

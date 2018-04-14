@@ -1,23 +1,21 @@
 <template>
-  <div class="login">
+  <div class="login animated fadeIn">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
 
           <form action="">
-            <div class="box-form">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="text" id="userName" class="form-control input-sm" placeholder="username" />
-                </div>
+            <div class="col-md-6 box-form">
+              <div class="form-group">
+                <input type="text" id="userName" class="form-control input-sm" placeholder="username" />
+              </div>
 
-                <div class="form-group">
-                  <input type="password" id="userPassword" class="form-control input-sm" placeholder="password" />
-                </div>
+              <div class="form-group">
+                <input type="password" id="userPassword" class="form-control input-sm" placeholder="password" />
+              </div>
 
-                <div class="form-group">    
-                  <a href="#" class="btn btn-primary btn-md">login</a>
-                </div>
+              <div class="form-group">    
+                <a href="#" class="btn btn-primary btn-md">login</a>
               </div>
             </div>
           </form>
@@ -52,18 +50,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>
