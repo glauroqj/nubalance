@@ -3,8 +3,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-
-          <form action="">
+          <h3 class="text-center">Login</h3>
+          <form method="post" autocomplete="on" v-on:submit.prevent>
             <div class="col-md-6 box-form">
               <div class="form-group">
                 <input type="text" id="userName" class="form-control input-sm" placeholder="username" />
@@ -15,10 +15,14 @@
               </div>
 
               <div class="form-group">    
-                <a href="#" class="btn btn-primary btn-md">login</a>
+                <button type="submit" class="btn btn-primary btn-md">Login</button>
               </div>
             </div>
           </form>
+
+          <div class="col-xs-6 text-center">
+            <a href="#/signup" class="btn btn-link btn-md">Create a new account?</a>
+          </div>
 
         </div>
       </div>
@@ -39,12 +43,18 @@ export default {
     let vm = this;
     // this.$store.dispatch()
     setTimeout(()=> {
-      vm.$store.dispatch('removeLoadingAction');
+      vm.verifyLoginAcction();
+      // vm.$store.dispatch('removeLoadingAction');
     }, 1500);
   },
   computed: mapGetters({
     state: 'loginState'
-  })
+  }),
+  methods: {
+    ...mapActions({
+      verifyLoginAcction: 'verifyLoginAcction'
+    })
+  }
 }
 </script>
 

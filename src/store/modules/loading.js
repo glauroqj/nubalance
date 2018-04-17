@@ -34,7 +34,7 @@ const actions = {
 // mutations
 const mutations = {
 	removeLoadingMutation (state, payload) {
-		console.log('mutation remove loading', payload)
+		// console.log('mutation remove loading', payload)
 		state.all = payload;
 	}
 

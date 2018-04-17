@@ -32,6 +32,3 @@ export default {
 </script>
 
 <style lang="less" src="./assets/css/main.less"></style>
-
-<style>
-</style>
