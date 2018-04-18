@@ -17,9 +17,11 @@ const getters = {
 const actions = {
   verifyLoginAcction() {
     let vm = this;
-    console.log('Verifying if login...')
+    store.dispatch('activeLoadingAction', 'Verifying account...');
+    console.log('Verifying login...')
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
+        store.dispatch('removeLoadingAction');
         /* User is signed in. */
         let name, email, photoUrl, uid, emailVerified;
         console.log('Loged:', name, email, photoUrl);
@@ -34,6 +36,8 @@ const actions = {
     });
   },
   loginAccAction(state, payload) {
+    console.log('Login', payload)
+    store.dispatch('activeLoadingAction', 'Verifying account...');
     // firebase.auth().signInWithEmailAndPassword(payload.email, payload.pass)
     // .then((success)=> {
     //   debugger
@@ -51,12 +55,16 @@ const actions = {
       /* show alert error */
       return false;
     }
+    /* active loading */
+    store.dispatch('activeLoadingAction', 'Creating account...');
+
     firebase.auth().createUserWithEmailAndPassword(payload.email, payload.pass)
     .then((success)=> {
       router.push('/login');
       console.log(success)
     })
     .catch((error)=> {
+      router.push('/signup');
       let errorCode = error.code;
       let errorMessage = error.message;
       console.log( error.code, error.message )

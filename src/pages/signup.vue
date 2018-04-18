@@ -40,9 +40,7 @@ export default {
   created () {
     let vm = this;
     // this.$store.dispatch()
-    setTimeout(()=> {
-      vm.$store.dispatch('removeLoadingAction');
-    }, 1500);
+    vm.$store.dispatch('removeLoadingAction');
   },
   computed: mapGetters({
     state: 'loginState'

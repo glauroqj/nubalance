@@ -7,15 +7,15 @@
           <form method="post" autocomplete="on" v-on:submit.prevent>
             <div class="col-md-6 box-form">
               <div class="form-group">
-                <input type="text" id="userName" class="form-control input-sm" placeholder="username" />
+                <input type="text" id="userName" class="form-control input-sm" v-model="email" placeholder="Email" />
               </div>
 
               <div class="form-group">
-                <input type="password" id="userPassword" class="form-control input-sm" placeholder="password" />
+                <input type="password" id="userPassword" class="form-control input-sm" v-model="pass" placeholder="Password" />
               </div>
 
               <div class="form-group">    
-                <button type="submit" class="btn btn-primary btn-md">Login</button>
+                <button type="submit" class="btn btn-primary btn-md" @click.prevent="loginAccAction({email, pass})">Login</button>
               </div>
             </div>
           </form>
@@ -37,22 +37,22 @@ export default {
   name: 'login',
   data () {
     return {
+      email: '',
+      pass: ''
     }
   },
   created () {
     let vm = this;
     // this.$store.dispatch()
-    setTimeout(()=> {
-      vm.verifyLoginAcction();
-      // vm.$store.dispatch('removeLoadingAction');
-    }, 1500);
+    vm.verifyLoginAcction();
   },
   computed: mapGetters({
     state: 'loginState'
   }),
   methods: {
     ...mapActions({
-      verifyLoginAcction: 'verifyLoginAcction'
+      verifyLoginAcction: 'verifyLoginAcction',
+      loginAccAction: 'loginAccAction'
     })
   }
 }

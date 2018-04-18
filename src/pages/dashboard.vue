@@ -16,10 +16,7 @@ export default {
   created () {
     let vm = this;
     // this.$store.dispatch()
-    setTimeout(()=> {
-      vm.verifyLoginAcction();
-      // vm.$store.dispatch('removeLoadingAction');
-    }, 1500);
+    vm.verifyLoginAcction();
   },
   computed: mapGetters({
     // state: 'dashboardState'

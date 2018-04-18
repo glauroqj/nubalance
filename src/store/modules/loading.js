@@ -2,7 +2,7 @@
 const state = {
 	all: {
 		showLoading: true,
-		text: 'Carregando',
+		text: 'Loading...',
 		height: 30,
 		width: 30
 	}
@@ -16,19 +16,29 @@ const getters = {
 // actions
 const actions = {
 	removeLoadingAction () {
+		let vm = this;
 		let payload = {
 			showLoading: false,
-			text: 'Carregando...',
+			text: 'Loading...',
 			height: 30,
 			width: 30
 		};
-		this.commit('removeLoadingMutation', payload);
+		setTimeout(()=> {
+			vm.commit('removeLoadingMutation', payload);
+		}, 1500);
+	},
+	activeLoadingAction (state, text) {
+		let vm = this;
+		let payload = {
+			showLoading: true,
+			text: text,
+			height: 30,
+			width: 30
+		};
+		setTimeout(()=> {
+			vm.commit('activeLoadingMutation', payload);
+		}, 1500);
 	}
-  // getAllProducts ({ commit }) {
-  //   shop.getProducts(products => {
-  //     commit('setProducts', products)
-  //   })
-  // }
 }
 
 // mutations
@@ -36,12 +46,10 @@ const mutations = {
 	removeLoadingMutation (state, payload) {
 		// console.log('mutation remove loading', payload)
 		state.all = payload;
+	},
+	activeLoadingMutation (state, payload) {
+		state.all = payload;
 	}
-
-  // decrementProductInventory (state, { id }) {
-  //   const product = state.all.find(product => product.id === id)
-  //   product.inventory--
-  // }
 }
 
 export default {

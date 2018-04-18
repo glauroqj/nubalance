@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <loading :loading="state"/>
-
     <router-view v-show="!state.showLoading"/>
   </div>
 </template>
