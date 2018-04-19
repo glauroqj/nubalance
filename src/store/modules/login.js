@@ -38,16 +38,17 @@ const actions = {
   loginAccAction(state, payload) {
     console.log('Login', payload)
     store.dispatch('activeLoadingAction', 'Verifying account...');
-    // firebase.auth().signInWithEmailAndPassword(payload.email, payload.pass)
-    // .then((success)=> {
-    //   debugger
-    //   console.log(success)
-    // })
-    // .catch((error)=> {
-    //   let errorCode = error.code;
-    //   let errorMessage = error.message;
-    //   console.log( error.code, error.message )
-    // });
+    firebase.auth().signInWithEmailAndPassword(payload.email, payload.pass)
+    .then((success)=> {
+      console.log(success)
+    })
+    .catch((error)=> {
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      router.push('/login');
+      store.dispatch('removeLoadingAction');
+      console.log( error.code, error.message )
+    });
   },
   createAccAction(state, payload) {
     console.log('CREATE ACCOUNT', payload)

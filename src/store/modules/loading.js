@@ -25,7 +25,7 @@ const actions = {
 		};
 		setTimeout(()=> {
 			vm.commit('removeLoadingMutation', payload);
-		}, 1500);
+		}, 350);
 	},
 	activeLoadingAction (state, text) {
 		let vm = this;
@@ -37,7 +37,7 @@ const actions = {
 		};
 		setTimeout(()=> {
 			vm.commit('activeLoadingMutation', payload);
-		}, 1500);
+		}, 350);
 	}
 }
 
