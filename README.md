@@ -2,6 +2,7 @@
 
 - https://github.com/vuejs/awesome-vue
 - Loading: https://github.com/epicmaxco/epic-spinners
+- NOtification: https://github.com/shakee93/vue-toasted
 
 ## Build Setup
 

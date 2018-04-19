@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import router from '@/router'
 import store from '@/store/store.js'
 import firebase from 'firebase'
@@ -37,6 +38,11 @@ const actions = {
   },
   loginAccAction(state, payload) {
     console.log('Login', payload)
+    if( payload.email == '' || payload.pass == '' ) {
+      /* show alert error */
+      Vue.toasted.show('Empty fields');
+      return false;
+    }
     store.dispatch('activeLoadingAction', 'Verifying account...');
     firebase.auth().signInWithEmailAndPassword(payload.email, payload.pass)
     .then((success)=> {
@@ -54,6 +60,7 @@ const actions = {
     console.log('CREATE ACCOUNT', payload)
     if( payload.email == '' || payload.pass == '' ) {
       /* show alert error */
+      Vue.toasted.show('Empty fields');
       return false;
     }
     /* active loading */
@@ -65,9 +72,11 @@ const actions = {
       console.log(success)
     })
     .catch((error)=> {
-      router.push('/signup');
       let errorCode = error.code;
       let errorMessage = error.message;
+      Vue.toasted.show(errorMessage);
+      store.dispatch('removeLoadingAction');
+      router.push('/signup');
       console.log( error.code, error.message )
     });
   }
