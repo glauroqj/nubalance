@@ -8,6 +8,7 @@ import Vuex from 'vuex'
 /* modules */
 import loadingModule from './modules/loading.js'
 import loginModule from './modules/login.js'
+import dashboardModule from './modules/dashboard.js'
 
 Vue.use(Vuex)
 
@@ -15,7 +16,8 @@ const store = new Vuex.Store({
 	strict: true,
 	modules: {
 		loading: loadingModule,
-		login: loginModule
+		login: loginModule,
+    dashboard: dashboardModule
 	}
   // state: {
   //   count: 0

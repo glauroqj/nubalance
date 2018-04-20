@@ -1,14 +1,25 @@
 <template>
-  <div class="animated fadeIn">
-    <h1>LOGADO</h1>
+  <div class="nu-dashboard animated fadeIn">
+    <navbar/>
+    <div class="container-fluid">
+      <div class="row">
+        <grid/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import navbar from '@/components/navbar.vue'
+import grid from '@/components/grid-list.vue'
 
 export default {
   name: 'dashboard',
+  components: {
+    navbar,
+    grid
+  },
   data () {
     return {
     }
@@ -19,7 +30,7 @@ export default {
     vm.verifyLoginAcction();
   },
   computed: mapGetters({
-    // state: 'dashboardState'
+    state: 'dashboardState'
   }),
   methods: {
     ...mapActions({
