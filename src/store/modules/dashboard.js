@@ -20,6 +20,9 @@ const actions = {
 
 // mutations
 const mutations = {
+  // userDashboardMutation(state, payload) {
+  //   state.all = payload;
+  // }
   // setProducts (state, products) {
   //   state.all = products
   // },

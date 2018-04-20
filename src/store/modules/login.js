@@ -17,17 +17,28 @@ const getters = {
 // actions
 const actions = {
   verifyLoginAcction() {
-    let vm = this;
+    let vm = this;  
     store.dispatch('activeLoadingAction', 'Verifying account...');
     console.log('Verifying login...')
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         store.dispatch('removeLoadingAction');
         /* User is signed in. */
-        let name, email, photoUrl, uid, emailVerified;
-        console.log('Loged:', name, email, photoUrl);
+        console.log('Loged:', user, user.email, user.uid);
         router.push('/dashboard');
+
+        /* save user on state */
+        let payload = {
+          user: {
+            email: user.email,
+            uid: user.uid
+          }
+        };
+        vm.commit('userLogindMutation', payload);
         store.dispatch('removeLoadingAction');
+
+        /* save on firebase */
+        store.dispatch('savaUserDatabaseAction');
         return false;
       } 
       /* No user is signed in. */
@@ -35,6 +46,16 @@ const actions = {
       router.push('/login');
       store.dispatch('removeLoadingAction');
     });
+  },
+  savaUserDatabaseAction() {
+    if( state.all.user == '' || state.all.user == undefined ) {
+      return false
+    }
+    firebase.database().ref('users/' + state.all.user.uid).set({
+      email: state.all.user.email,
+      uid : state.all.user.uid,
+    });
+
   },
   loginAccAction(state, payload) {
     console.log('Login', payload)
@@ -90,7 +111,9 @@ const actions = {
 // mutations
 const mutations = {
   createAccMutation(state, payload) {
-
+  },
+  userLogindMutation(state, payload) {
+    state.all = payload;
   }
   // setProducts (state, products) {
   //   state.all = products
