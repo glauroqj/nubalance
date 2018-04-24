@@ -6,7 +6,9 @@ import {config} from '@/auth.js'
 
 // initial state
 const state = {
-  all: []
+  all: {
+      bank: {}
+    }
 }
 
 // getters

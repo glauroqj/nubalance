@@ -9,14 +9,15 @@ import {config} from './auth.js'
 import router from './router'
 import store from './store/store.js'
 
+
 /* notifications */
 import toasted from 'vue-toasted';
-Vue.use(toasted, toastedOptions);
 let toastedOptions = {
   theme: 'primary',
   position: 'top-right',
   duration: 5000
 };
+Vue.use(toasted, toastedOptions);
 
 Vue.config.productionTip = false
 

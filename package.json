@@ -14,6 +14,7 @@
     "firebase": "^4.12.1",
     "less": "^3.0.1",
     "less-loader": "^4.1.0",
+    "nubank": "^1.1.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue-toasted": "^1.1.24",

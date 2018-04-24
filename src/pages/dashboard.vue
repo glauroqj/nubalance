@@ -27,7 +27,7 @@ export default {
   created () {
     let vm = this;
     // this.$store.dispatch()
-    vm.verifyLoginAcction();
+    vm.verifyLoginAcction('/dashboard');
   },
   computed: mapGetters({
     state: 'dashboardState'

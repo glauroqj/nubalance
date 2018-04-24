@@ -35,9 +35,7 @@ const actions = {
 			height: 30,
 			width: 30
 		};
-		setTimeout(()=> {
-			vm.commit('activeLoadingMutation', payload);
-		}, 350);
+		vm.commit('activeLoadingMutation', payload);
 	}
 }
 

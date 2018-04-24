@@ -14,7 +14,7 @@
           <a class="nav-link" href="#/dashboard" disabled>Features</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#/dashboard" disabled>Bank Account</a>
+          <a class="nav-link" href="#/dashboard/bank-account" disabled>Bank Account</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#/dashboard" disabled>My Account</a>

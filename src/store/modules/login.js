@@ -16,16 +16,15 @@ const getters = {
 
 // actions
 const actions = {
-  verifyLoginAcction() {
-    let vm = this;  
-    store.dispatch('activeLoadingAction', 'Verifying account...');
-    console.log('Verifying login...')
+  verifyLoginAcction(state, route) {
+    let vm = this; 
+    console.log(route)
+    store.dispatch('activeLoadingAction', 'Loading...');
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        store.dispatch('removeLoadingAction');
         /* User is signed in. */
         console.log('Loged:', user, user.email, user.uid);
-        router.push('/dashboard');
+        router.push(route);
 
         /* save user on state */
         let payload = {
@@ -35,8 +34,6 @@ const actions = {
           }
         };
         vm.commit('userLogindMutation', payload);
-        store.dispatch('removeLoadingAction');
-
         /* save on firebase */
         store.dispatch('savaUserDatabaseAction');
         return false;
@@ -68,12 +65,15 @@ const actions = {
     firebase.auth().signInWithEmailAndPassword(payload.email, payload.pass)
     .then((success)=> {
       console.log(success)
+      router.push('/dashboard');
+      store.dispatch('removeLoadingAction');
     })
     .catch((error)=> {
       let errorCode = error.code;
       let errorMessage = error.message;
       router.push('/login');
       store.dispatch('removeLoadingAction');
+      Vue.toasted.show(errorMessage);
       console.log( error.code, error.message )
     });
   },
@@ -114,6 +114,7 @@ const mutations = {
   },
   userLogindMutation(state, payload) {
     state.all = payload;
+    store.dispatch('removeLoadingAction');
   }
   // setProducts (state, products) {
   //   state.all = products
