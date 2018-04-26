@@ -2,7 +2,8 @@
 
 - https://github.com/vuejs/awesome-vue
 - Loading: https://github.com/epicmaxco/epic-spinners
-- NOtification: https://github.com/shakee93/vue-toasted
+- Notification: https://github.com/shakee93/vue-toasted
+- Mask Input: https://github.com/niksmr/vue-masked-input
 
 ## Build Setup
 
